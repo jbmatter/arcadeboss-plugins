@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "mcp__plugin_arcade_arcade__publish_game",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/publish-check.mjs",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "arcadeboss",
+  "description": "Arcade Boss: build games for your 3D arcade from your own AI.",
+  "owner": {
+    "name": "Arcade Boss",
+    "url": "https://arcadeboss.io"
+  },
+  "plugins": [
+    {
+      "name": "arcade",
+      "source": "./claude",
+      "version": "0.1.27",
+      "description": "Build and revise games for your Arcade Boss arcade from Claude Code. Verified in a real browser, published to your workbench, shipped in the arcade."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+# The MCP tools this skill drives — declared so ChatGPT/Codex know the skill
+# needs the arcade server (design of record: ideas/arcade-plugin-design.md §2).
+# One server serves every harness; Codex reaches it through the plugin's
+# .mcp.json (Bearer from $ARCADE_PLAYER_TOKEN), ChatGPT through a registered
+# connection on the same /mcp endpoint.
+interface:
+  display_name: "Arcade Boss — build a game"
+  short_description: "Build or revise a game for your arcade"
+  default_prompt: "Build me an arcade game where…"
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "get_arcade"
+      description: "Your arcade — name, visit link, counts; provisions one on first touch"
+      transport: "streamable_http"
+      url: "https://arcadeboss.io/mcp"
+    - type: "mcp"
+      value: "list_games"
+      description: "Every project in the arcade, lineage-grouped, with the head to revise"
+      transport: "streamable_http"
+      url: "https://arcadeboss.io/mcp"
+    - type: "mcp"
+      value: "get_game_source"
+      description: "A game's files, its own contract and the baseVersion to publish against"
+      transport: "streamable_http"
+      url: "https://arcadeboss.io/mcp"
+    - type: "mcp"
+      value: "create_project"
+      description: "Start a project from a real brief; returns the gameId and the house contract"
+      transport: "streamable_http"
+      url: "https://arcadeboss.io/mcp"
+    - type: "mcp"
+      value: "verify_game"
+      description: "The iteration loop — contract lint, then a real browser boot on desktop and phone"
+      transport: "streamable_http"
+      url: "https://arcadeboss.io/mcp"
+    - type: "mcp"
+      value: "look_game"
+      description: "The arcade's own screenshots of a draft, per viewport, with what it measured"
+      transport: "streamable_http"
+      url: "https://arcadeboss.io/mcp"
+    - type: "mcp"
+      value: "publish_game"
+      description: "Write + verify in one call; lands a draft on the workbench and returns the walk-in link"
+      transport: "streamable_http"
+      url: "https://arcadeboss.io/mcp"

@@ -1,0 +1,8 @@
+{
+  "mcp_servers": {
+    "arcade": {
+      "url": "https://arcadeboss.io/mcp?via=codex",
+      "bearer_token_env_var": "ARCADE_PLAYER_TOKEN"
+    }
+  }
+}
