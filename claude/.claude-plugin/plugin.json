@@ -1,9 +1,9 @@
 {
   "name": "arcade",
-  "displayName": "Game Dev Sim Arcade",
-  "description": "Build and revise real arcade games for your Game Dev Sim arcade from your own Claude Code session — verified in a real browser, published to your workbench, shipped in the arcade.",
-  "version": "0.1.27",
+  "displayName": "Arcade Boss",
+  "description": "Build and revise real arcade games for your Arcade Boss arcade from your own Claude Code session — verified in a real browser, published to your workbench, shipped in the arcade.",
+  "version": "0.1.28",
   "author": {
-    "name": "Game Dev Sim"
+    "name": "Arcade Boss", "url": "https://arcadeboss.io"
   }
 }

@@ -1,6 +1,6 @@
 ---
 name: arcade-connect
-description: Connect Codex or ChatGPT to the user's Game Dev Sim arcade account — where the account link comes from, where the player token goes, and how to prove the connection with get_arcade. Use when the arcade tools are missing, every arcade call answers 401, or the user says "connect my arcade".
+description: Connect Codex or ChatGPT to the user's Arcade Boss account — where the account link comes from, where the player token goes, and how to prove the connection with get_arcade. Use when the arcade tools are missing, every arcade call answers 401, or the user says "connect my arcade".
 ---
 
 # Connecting the arcade

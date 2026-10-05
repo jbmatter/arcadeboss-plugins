@@ -1,6 +1,6 @@
 ---
 name: connect
-description: Connect this machine to your Game Dev Sim arcade account (stores your player token and server URL for the arcade MCP server)
+description: Connect this machine to your Arcade Boss account (stores your player token and server URL for the arcade MCP server)
 ---
 
 Connect the user's arcade account. The arcade MCP server reads two

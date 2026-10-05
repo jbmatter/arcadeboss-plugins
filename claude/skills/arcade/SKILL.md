@@ -1,6 +1,6 @@
 ---
 name: arcade
-description: Build or revise an arcade game for the user's Game Dev Sim arcade — a single self-contained HTML file that runs in the arcade's sandboxed cabinet iframe. Use whenever the user wants to make a game, fix a game, or iterate on a game for their arcade.
+description: Build or revise an arcade game for the user's Arcade Boss arcade — a single self-contained HTML file that runs in the arcade's sandboxed cabinet iframe. Use whenever the user wants to make a game, fix a game, or iterate on a game for their arcade.
 ---
 
 # Building a game for the arcade
