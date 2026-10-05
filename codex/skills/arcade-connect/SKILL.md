@@ -13,12 +13,13 @@ chat text, never write it anywhere but the one place below.
 ## 1. Get the key
 
 In the arcade (https://arcadeboss.io — the account is created the first
-time the page loads): the **☰ menu** on the top-left card → **👤 Profile**
-→ **🔌 Plugin key…**. A popup shows the key with a Copy button; picking
-**Codex** under it shows the exact two lines from step 2 with the key and
-the server filled in, so the user may hand you those instead. The MCP
-endpoint is the arcade's origin plus `/mcp`. A key is shown once; a lost
-one is revoked in that popup and a new one made there.
+time the page loads): **🗃 Builds** → **🔌 Connect** (or ☰ menu → 👤 Profile
+→ 🔌 **Plugin key…**, the same sheet) → **Codex** → step 2's **Copy**. That
+copies `$arcade-connect <url> <key>` with the MCP endpoint and a new key
+(`pt_mcp_…`) filled in, so the user usually hands you both at once. The
+MCP endpoint is the arcade's origin plus `/mcp`. A key is shown once; a lost
+one is revoked under the sheet's "Your keys" and the step copied again for
+a new one.
 
 LEGACY: an older connect used the 🪪 Account link (advanced)… row
 (`https://<server>/claim-player/<token>`) — the account MASTER key. If the

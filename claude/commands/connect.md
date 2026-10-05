@@ -14,11 +14,13 @@ token, in either order).
 
 1. Determine both values. If either is missing, ask the user for it:
    - The token: in the arcade, 🗃 **Builds** → 🔌 **Connect** (the button at
-     the top of the tab) → **Mint a token** (or ☰ menu on the top-left HUD
-     card → 👤 Profile → 🔌 **Plugin key…**, which opens the same sheet) — it is copied and shown once
-     (shaped `pt_mcp_…`). The sheet only works once the account exists, i.e.
-     after the arcade has loaded once in that browser. It is shown once; a lost
-     one is simply revoked there and a new one minted. Treat it like a
+     the top of the tab; ☰ menu → 👤 Profile → 🔌 **Plugin key…** opens the
+     same sheet) → **Claude Code** → **Copy & open Claude** on step 2. That
+     copies this whole command with the URL and a new key (`pt_mcp_…`)
+     already in it, so usually both values arrive as arguments. The sheet
+     only works once the account exists, i.e. after the arcade has loaded
+     once in that browser. A key is shown once; a lost one is revoked under
+     the sheet's "Your keys" and the step copied again for a new one. Treat it like a
      password: never echo it back in full, never write it anywhere except
      the settings step below.
    - The URL is their arcade server's origin plus `/mcp`

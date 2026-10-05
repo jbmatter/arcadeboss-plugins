@@ -177,8 +177,8 @@ your page as the shell would: `{ type: "avatar", id: "me", name: "ACE",
 ...sample }`. `verify_game` and `look_game` send the same body.
 
 **If the arcade tools are missing or every call fails**, the account isn't
-connected: have the user run `/arcade:connect` — the 🪪 account button next
-to their name in the arcade copies the account link it needs — then restart
+connected: send the user to the arcade's 🗃 Builds → 🔌 Connect, which copies
+the whole `/arcade:connect` command with their key in it — then restart
 Claude Code. Don't build "for later"; the whole point is the game landing in
 their arcade.
 
