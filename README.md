@@ -2,14 +2,14 @@
 
 Build games for your [Arcade Boss](https://arcadeboss.io) arcade from Claude Code or Codex, on your own subscription.
 
-**Current version: 0.1.30.** Start at **arcadeboss.io → Builds → 🔌 Connect**: it walks you through these steps.
+**Current version: 0.1.31.** Start at **arcadeboss.io → Builds → 🔌 Connect**: it walks you through these steps.
 
 ## Claude Code
 
 - **Desktop app:** add the GitHub marketplace `jbmatter/arcadeboss-plugins`, then install **arcade**.
 - **Terminal:** `claude plugin marketplace add jbmatter/arcadeboss-plugins` then `claude plugin install arcade@arcadeboss`
 
-Then sign in: in Claude Code run `/mcp`, pick **arcade**, and choose **Authenticate**. Your browser opens Arcade Boss; sign in and press Allow.
+Then type `/arcade:connect` in Claude Code: Claude sends you a sign-in link. Open it, sign in and press Allow.
 
 ## Codex
 

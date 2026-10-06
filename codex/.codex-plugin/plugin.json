@@ -1,6 +1,6 @@
 {
   "name": "arcade",
-  "version": "0.1.30",
+  "version": "0.1.31",
   "description": "Build and revise real arcade games for your Arcade Boss arcade from ChatGPT or Codex — verified in a real browser, published to your workbench, shipped in the arcade.",
   "author": { "name": "Arcade Boss", "url": "https://arcadeboss.io" },
   "homepage": "https://arcadeboss.io",

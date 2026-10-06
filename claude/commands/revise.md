@@ -23,5 +23,7 @@ dead) — and say that the live cabinet keeps serving the shipped version
 until they ship the new draft in the arcade.
 
 If the arcade tools are missing from this session or every call errors, the
-user isn't signed in: run `/arcade:connect` (it walks them through `/mcp` →
-arcade → Authenticate, which opens the Arcade Boss sign-in in their browser).
+user isn't signed in: call the arcade server's `authenticate` tool (Claude Code
+offers one while it's signed out — "arcade - authenticate"), give the user the
+sign-in link it returns, and continue once they've pressed Allow. `/arcade:connect`
+walks through the same thing.

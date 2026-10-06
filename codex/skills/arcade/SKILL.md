@@ -196,11 +196,13 @@ your page as the shell would: `{ type: "avatar", id: "me", name: "ACE",
 ...sample }`. `verify_game` and `look_game` send the same body.
 
 **If the arcade tools are missing or every call fails**, the user isn't
-signed in: ask them to sign in to Arcade Boss from this app — in Claude
-Code, `/mcp` → arcade → Authenticate; in Codex, installing the plugin signs
-in (or `codex mcp add arcade --url "https://arcadeboss.io/mcp?via=codex"`).
-Their browser opens the Arcade Boss sign-in; they press Allow. The arcade's
-🗃 Builds → 🔌 Connect walks them through it. Don't build "for later"; the
+signed in. If you have an `authenticate` tool for the arcade server (Claude
+Code offers one while a server is signed out), call it and give the user the
+sign-in link it returns — they sign in and press Allow, and the tools appear.
+Otherwise ask them to sign in from this app: Claude Code's `/mcp` → arcade →
+Authenticate; in Codex, installing the plugin signs in (or `codex mcp add
+arcade --url "https://arcadeboss.io/mcp?via=codex"`). The arcade's 🗃 Builds →
+🔌 Connect walks them through it. Don't build "for later"; the
 whole point is the game landing in their arcade.
 
 (Working inside the game-dev-sim repo without the MCP connected? The same

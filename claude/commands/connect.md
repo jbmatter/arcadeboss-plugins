@@ -5,25 +5,32 @@ description: Sign in to your Arcade Boss account so the arcade MCP server works 
 
 Get the user signed in to their Arcade Boss account. The plugin's MCP server
 is `https://arcadeboss.io/mcp`, and it signs in with OAuth: nothing to paste,
-no key to store.
+no key to store, no restart.
 
 Arguments the user may have passed: $ARGUMENTS (an older Connect sheet copied
 `/arcade:connect <url> <key>` — see step 3 if a `pt_mcp_…` key arrived).
 
-1. **Sign in.** Tell the user to run `/mcp`, pick **arcade** (listed under the
-   plugin), and choose **Authenticate**. Their browser opens the Arcade Boss
-   sign-in page: they sign in (email code or Google — a new email makes a new
-   account and its arcade) and press **Allow**. Claude Code keeps the sign-in
-   and refreshes it; there is nothing to restart.
+1. **Start the sign-in yourself.** While the arcade server is signed out,
+   Claude Code gives you a tool for it named like
+   `mcp__plugin_arcade_arcade__authenticate` (shown as "arcade -
+   authenticate"). Call it. It returns a sign-in URL: give it to the user as a
+   link, and tell them to sign in (email code or Google — a new email makes a
+   new account and its arcade) and press **Allow**. When they come back, the
+   arcade's real tools appear by themselves. On a remote machine where the
+   browser's last page fails to load, ask them to paste that page's full
+   address and pass it to the matching `complete_authentication` tool.
+   - If there's no authenticate tool and no arcade tools either, ask the user
+     to run `/mcp`, pick **arcade**, and choose **Authenticate** — the same
+     sign-in, from Claude Code's own menu.
+   - If the arcade tools are already there, they're signed in: skip to 2.
 2. **Prove it.** Call the arcade's `get_arcade` tool and report the arcade's
-   name and visit link. If it still answers with a sign-in error, the
-   authentication didn't finish — have them run `/mcp` → arcade →
-   Authenticate again.
-3. **No browser on this machine?** (SSH, a container.) Then a plugin key is
-   the fallback. The key is a `pt_mcp_…` token from the arcade's 🗃 Builds →
-   🔌 Connect → Claude Code → **In Terminal** → "No browser? Use a key", which
-   copies the whole command. If the user handed you a key instead, run it for
-   them — it adds a second, key-authenticated server beside the plugin's:
+   name and visit link.
+3. **No browser on this machine?** (SSH with no way to open a link, a
+   container.) Then a plugin key is the fallback. The key is a `pt_mcp_…`
+   token from the arcade's 🗃 Builds → 🔌 Connect → Claude Code → **In
+   Terminal** → "No browser? Use a key", which copies the whole command. If the
+   user handed you a key instead, run it for them — it adds a second,
+   key-authenticated server beside the plugin's:
 
    ```bash
    claude mcp add --transport http arcade-key https://arcadeboss.io/mcp --header "Authorization: Bearer <key>"
