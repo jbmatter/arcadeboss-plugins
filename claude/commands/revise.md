@@ -23,6 +23,5 @@ dead) — and say that the live cabinet keeps serving the shipped version
 until they ship the new draft in the arcade.
 
 If the arcade tools are missing from this session or every call errors, the
-account isn't connected yet: send the user to the arcade's 🗃 Builds →
-🔌 Connect → Claude Code, whose step 2 copies the whole `/arcade:connect`
-command with their key in it, and to restart Claude Code after.
+user isn't signed in: run `/arcade:connect` (it walks them through `/mcp` →
+arcade → Authenticate, which opens the Arcade Boss sign-in in their browser).

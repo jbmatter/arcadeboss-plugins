@@ -10,16 +10,13 @@ If there are bench drafts, remind them shipping happens in the arcade —
 that's the fun part.
 
 **In the Claude Code app, offer to open the arcade right here.** The
-built-in browser logs in with one navigation: open
-`<origin>/claim-player/$ARCADE_PLAYER_TOKEN` (origin = `ARCADE_MCP_URL`
-minus `/mcp`; both are in the session env) — that binds the browser to
-their account, resolves their arcade's owner key, and lands them standing
-in their own arcade, no separate browser needed. It's idempotent, so do it
-whenever the built-in browser looks logged-out. Never paste that URL into
-chat or anywhere public — it carries the account master key; navigate the
-browser to it directly.
+built-in browser logs in with one navigation: open `get_arcade`'s
+`signedInUrl` — its one-time key signs that browser in to their account and
+lands them standing in their own arcade, no separate browser needed. A key
+works once and for an hour; call `get_arcade` again for a fresh one whenever
+the built-in browser looks logged-out. Never paste that URL into chat or
+anywhere public — navigate the browser to it directly.
 
 If the arcade tools are missing from this session or every call errors, the
-account isn't connected yet: send the user to the arcade's 🗃 Builds →
-🔌 Connect → Claude Code, whose step 2 copies the whole `/arcade:connect`
-command with their key in it, and to restart Claude Code after.
+user isn't signed in: run `/arcade:connect` (it walks them through `/mcp` →
+arcade → Authenticate, which opens the Arcade Boss sign-in in their browser).

@@ -43,18 +43,18 @@ The bench link carries the ARCADE key, which is the same key the skill
 already tells you to show the player and the same one every unshipped
 in-world iframe URL rides — so it may sit in the card, but never in
 anything that leaves this session, and remember a card is something the
-player screenshots. The ACCOUNT token (`$ARCADE_PLAYER_TOKEN`) is
-different and NEVER appears in chat text or markup: it stays in this
-session's own navigation, below.
+player screenshots. A SIGN-IN link (`signedInUrl` from `get_arcade`, the
+publish's `libraryUrl`) is different and NEVER appears in a card or
+anywhere public: it carries a one-time key to their account.
 
 The built-in-browser open, offered as a question when they'd rather stay
-in the app than leave for a browser tab: navigate the browser to
-`<origin>/claim-player/$ARCADE_PLAYER_TOKEN` once (origin =
-`ARCADE_MCP_URL` minus `/mcp`) — it logs in as their account and lands in
-their arcade; then go wherever they asked (the arcade, or the benchUrl).
-Idempotent, so repeat it whenever the browser looks logged out.
+in the app than leave for a browser tab: navigate the browser to the
+publish's `libraryUrl` (or `get_arcade`'s `signedInUrl`) — its one-time key
+signs that browser in to their account and lands in their arcade; then go
+wherever they asked (the arcade, or the benchUrl). Each key works once and
+for an hour, so call `get_arcade` again for a fresh one whenever the
+browser looks logged out.
 
 If the arcade tools are missing from this session or every call errors, the
-account isn't connected yet: send the user to the arcade's 🗃 Builds →
-🔌 Connect → Claude Code, whose step 2 copies the whole `/arcade:connect`
-command with their key in it, and to restart Claude Code after.
+user isn't signed in: run `/arcade:connect` (it walks them through `/mcp` →
+arcade → Authenticate, which opens the Arcade Boss sign-in in their browser).

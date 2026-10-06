@@ -2,10 +2,7 @@
   "mcpServers": {
     "arcade": {
       "type": "http",
-      "url": "${ARCADE_MCP_URL}",
-      "headers": {
-        "Authorization": "Bearer ${ARCADE_PLAYER_TOKEN}"
-      }
+      "url": "https://arcadeboss.io/mcp"
     }
   }
 }

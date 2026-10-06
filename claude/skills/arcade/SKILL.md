@@ -68,12 +68,16 @@ The loop:
 freshly generated text (a model has no copy-paste), so inlining a 100KB
 game into `verify_game`/`publish_game` costs thousands of expensive
 output tokens PER CALL — measured on a real build, the publish relay cost
-more than writing the game did. Upload each file raw from disk instead:
+more than writing the game did. Upload each file raw from disk instead,
+with the `staging` block that `get_arcade`, `create_project` and
+`get_game_source` return (`url` and `bearer` — a key that opens this
+upload and nothing else, good for three hours; call `get_arcade` again for
+a fresh one, and never put it anywhere but this header):
 
     curl -sf -X PUT --data-binary @index.html \
-      -H "Authorization: Bearer $ARCADE_PLAYER_TOKEN" \
+      -H "Authorization: Bearer <staging.bearer>" \
       -H "Content-Type: application/octet-stream" \
-      "$ARCADE_MCP_URL/stage?path=index.html"
+      "<staging.url>?path=index.html"
 
 then call the tools with `files: "staged"` — zero model tokens for the
 content. Re-upload a file after every local edit; the slot lives 30
@@ -176,11 +180,13 @@ real export, `{rig, headTop, height, radius, model}` — and post it into
 your page as the shell would: `{ type: "avatar", id: "me", name: "ACE",
 ...sample }`. `verify_game` and `look_game` send the same body.
 
-**If the arcade tools are missing or every call fails**, the account isn't
-connected: send the user to the arcade's 🗃 Builds → 🔌 Connect, which copies
-the whole `/arcade:connect` command with their key in it — then restart
-Claude Code. Don't build "for later"; the whole point is the game landing in
-their arcade.
+**If the arcade tools are missing or every call fails**, the user isn't
+signed in: ask them to sign in to Arcade Boss from this app — in Claude
+Code, `/mcp` → arcade → Authenticate; in Codex, installing the plugin signs
+in (or `codex mcp add arcade --url "https://arcadeboss.io/mcp?via=codex"`).
+Their browser opens the Arcade Boss sign-in; they press Allow. The arcade's
+🗃 Builds → 🔌 Connect walks them through it. Don't build "for later"; the
+whole point is the game landing in their arcade.
 
 (Working inside the game-dev-sim repo without the MCP connected? The same
 verifier is `node scripts/verify-game.mjs <file>` — identical checks.)

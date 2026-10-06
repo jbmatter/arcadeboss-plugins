@@ -1,8 +1,8 @@
 # The MCP tools this skill drives — declared so ChatGPT/Codex know the skill
 # needs the arcade server (design of record: ideas/arcade-plugin-design.md §2).
 # One server serves every harness; Codex reaches it through the plugin's
-# .mcp.json (Bearer from $ARCADE_PLAYER_TOKEN), ChatGPT through a registered
-# connection on the same /mcp endpoint.
+# .mcp.json and ChatGPT through a registered connection on the same /mcp
+# endpoint — both sign in with OAuth.
 interface:
   display_name: "Arcade Boss — build a game"
   short_description: "Build or revise a game for your arcade"
