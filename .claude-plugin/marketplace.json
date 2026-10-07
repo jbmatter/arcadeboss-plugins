@@ -9,7 +9,7 @@
     {
       "name": "arcade",
       "source": "./claude",
-      "version": "0.1.32",
+      "version": "0.1.33",
       "description": "Build and revise games for your Arcade Boss arcade from Claude Code. Verified in a real browser, published to your workbench, shipped in the arcade."
     }
   ]

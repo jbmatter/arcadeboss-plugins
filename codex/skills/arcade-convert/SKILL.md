@@ -63,7 +63,9 @@ cabinet, not your take on it.
    moment to moment, what makes it hard, what makes the first minute fun —
    ending with one line that it was converted from an existing game, so a
    later revision in the studio knows to keep it faithful. Declare
-   `render: "3d"` for three.js, plus whatever step 3 settled.
+   `render: "3d"` for three.js, `project: true` for a game that stays
+   several files (step 5) — the contract it returns is then the PROJECT one,
+   not the one-file rules — plus whatever step 3 settled.
 
 5. **Keep the game's own shape, and let a script do the copying.** A tool
    argument is freshly generated text, so never retype a file you can copy
@@ -77,7 +79,10 @@ cabinet, not your take on it.
      contract globals must sit on `window` (`window.ASSETS = …`), since a
      module's `var` is invisible to the shell.
    - **Bare imports, JSX/TS or a build step** (`import … from "phaser"`, a
-     Vite/webpack project): run its build, or bundle the game's own code
+     Vite/webpack project): when the ONLY bare imports are `three` and its
+     addons, just swap them — `const THREE = window.THREE;` at the top of
+     each module, `THREE.GLTFLoader` for the loader (below) — no bundler.
+     Otherwise run its build, or bundle the game's own code
      with esbuild (`npx esbuild <entry> --bundle --format=esm
      --outfile=game.js`) and load that one module from `index.html`.
    - **A library from a CDN or npm** (Phaser, p5, Pixi, Kaboom, Howler…):
@@ -118,6 +123,11 @@ cabinet, not your take on it.
 
 6. **Fit it to the cabinet** — targeted edits against the House rules, the
    same discipline as a revision. What vibe-coded games usually need:
+   - **The arcade's pre-check greps the WORDS** — `localStorage`,
+     `sessionStorage`, `indexedDB`, `deviceorientation`, `devicemotion`,
+     `new WebSocket(`, `new XMLHttpRequest(` — in every file, comments
+     included: say "browser-saved scores" in a comment, never
+     the API's name.
    - **Storage** (`localStorage`, IndexedDB, cookies) throws in the
      sandbox: keep run state in variables; a personal best becomes the
      shell's high-score board; real saves use the `storage` protocol the
@@ -157,7 +167,8 @@ cabinet, not your take on it.
    own camera.
 
 8. **Demo, publish, deliver** as the `arcade` skill does: write and check
-   the cabinet's demo, `publish_game` once with the demo as `attract` and a
+   the cabinet's demo (each SEARCH must match ONE place — the first match
+   wins, so anchor on a line that appears once), `publish_game` once with the demo as `attract` and a
    changelog like "Converted from <source> — <what changed>", and deliver
    per its Delivering section. In the report, list what changed and
    anything that didn't come through, and end on the playtest link —
