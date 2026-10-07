@@ -89,19 +89,24 @@ freshly generated text (a model has no copy-paste), so inlining a 100KB
 game into `verify_game`/`publish_game` costs thousands of expensive
 output tokens PER CALL — measured on a real build, the publish relay cost
 more than writing the game did. Upload each file raw from disk instead,
-with the `staging` block that `get_arcade`, `create_project` and
-`get_game_source` return (`url` and `bearer` — a key that opens this
-upload and nothing else, good for three hours; call `get_arcade` again for
-a fresh one, and never put it anywhere but this header):
+with the `staging` block that `create_project` and `get_game_source`
+return for THAT game: its `url` ends in the gameId — the game's own slot,
+so another session building another game in the same arcade can never swap
+your files — and its `bearer` is a key that opens this upload and nothing
+else, good for three hours (call `get_arcade` again for a fresh one, and
+never put it anywhere but this header). Use each game's own url as given:
+never build it by hand or save it as a habit for every game, and never
+stage to the bare `/mcp/stage` — that is the arcade's SHARED slot, which
+every session writes to:
 
     curl -sf -X PUT --data-binary @index.html \
       -H "Authorization: Bearer <staging.bearer>" \
       -H "Content-Type: application/octet-stream" \
       "<staging.url>?path=index.html"
 
-then call the tools with `files: "staged"` — zero model tokens for the
-content. Re-upload a file after every local edit; the slot lives 30
-minutes (refreshed on every use), and verify-then-publish off ONE upload
+then call the tools with `files: "staged"` and that game's `gameId` —
+zero model tokens for the content. Re-upload a file after every local
+edit; the slot lives 30 minutes (refreshed on every use), and verify-then-publish off ONE upload
 guarantees the published bytes are the verified bytes, no transcription
 or diff ritual needed. If the stage endpoint 404s (an older server), fall
 back to inlining the files. A file the PLAYER brought — an image, sound or
