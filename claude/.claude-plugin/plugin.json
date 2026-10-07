@@ -2,7 +2,7 @@
   "name": "arcade",
   "displayName": "Arcade Boss",
   "description": "Build and revise real arcade games for your Arcade Boss arcade from your own Claude Code session — verified in a real browser, published to your workbench, shipped in the arcade.",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "author": {
     "name": "Arcade Boss", "url": "https://arcadeboss.io"
   }

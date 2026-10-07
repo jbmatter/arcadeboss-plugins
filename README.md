@@ -2,7 +2,7 @@
 
 Build games for your [Arcade Boss](https://arcadeboss.io) arcade from Claude Code or Codex, on your own subscription.
 
-**Current version: 0.1.31.** Start at **arcadeboss.io → Builds → 🔌 Connect**: it walks you through these steps.
+**Current version: 0.1.32.** Start at **arcadeboss.io → Builds → 🔌 Connect**: it walks you through these steps.
 
 ## Claude Code
 

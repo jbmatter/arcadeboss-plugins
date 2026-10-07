@@ -31,7 +31,12 @@ The loop:
    rule under House rules below (and the contract the tools return — for an
    existing game that contract is authoritative, e.g. its multiplayer or
    orientation declarations). The rules are strict because each one is a
-   defect class the arcade has actually shipped.
+   defect class the arcade has actually shipped. One file is right for
+   almost every game; a game genuinely too big for one may be a PROJECT —
+   index.html plus its own relative modules (`<script type="module"
+   src="./main.js">`), staged file by file, ASSETS/TUNING/`__PROBE` set
+   on `window` — and `get_game_source` hands an existing project the
+   project rules in its contract.
 4. **Iterate against `verify_game`** after every draft — it runs the
    arcade's real verifier (contract lint, then a boot in a real browser,
    desktop and phone) and returns defects to fix. Keep going until `ok`.
@@ -84,7 +89,12 @@ content. Re-upload a file after every local edit; the slot lives 30
 minutes (refreshed on every use), and verify-then-publish off ONE upload
 guarantees the published bytes are the verified bytes, no transcription
 or diff ritual needed. If the stage endpoint 404s (an older server), fall
-back to inlining the files.
+back to inlining the files. A file the PLAYER brought — an image, sound or
+model — stages the same way, as its raw bytes, and is never inlined or
+retyped: `get_game_source` lists one as `{ binary, bytes, sha256 }`,
+every publish KEEPS the ones you don't resend, and `drop` removes one (an
+arcade that hasn't switched asset files on answers the upload with 415 —
+draw it in code instead).
 
 **Token discipline — the transcript is append-only and you pay rent on
 it.** Everything a tool returns is re-read on every later step, so waste
