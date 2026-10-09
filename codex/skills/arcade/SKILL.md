@@ -160,7 +160,11 @@ live" entry posts `{ type: "open-lobby" }` only when the design wants
 everyone at once. **Racing friends' best runs** on a solo score game (a
 racer, a runner, a time trial) is `storage: { publish: ["ghost"] }`, with
 no multiplayer field; a two-player ghost RIVALRY taken in turns is an async
-match with the ghost in the move instead. **A system can be ADDED to
+match with the ghost in the move instead. **A multiplayer game also says
+whether it suits a party Game Night**: pass `gameNight: { fit, roundMinutes,
+why }` to `create_project` and again on every `publish_game` — your honest
+read of the game as built (one short round with a clear winner, ~10 minutes
+or less?), never a reason to change the design. **A system can be ADDED to
 an existing project** — never tell the player they need a new project for
 saves, online play or achievements: pass the same `multiplayer` /
 `storage` / `achievements` field to `get_game_source` (it returns the
