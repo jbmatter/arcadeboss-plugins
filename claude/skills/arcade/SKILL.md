@@ -130,8 +130,10 @@ improvised.** Online play: pass `multiplayer` — `{ recipe: "turns" |
 flags where they fit (`arena` is the .io-style always-on room: no lobby,
 the arcade's own house hosts it, and the game is two halves of callbacks
 handed to ONE `party.arena({ … })` call — the shim runs the loops, the
-roster, the inputs, the per-peer views and the easing; on the bench you play
-it as a peer, exactly as every player will) — and saves or player-published levels: pass
+roster, the inputs and the per-peer views, interpolates everyone else and
+predicts the player's own body through the game's ONE `move(body, input,
+dt)`, so movement is instant at any ping; on the bench you play it as a
+peer, exactly as every player will) — and saves or player-published levels: pass
 `storage` (`{ save: true }` and/or `{ publish: ["level"] }`). The
 contract the tool returns then carries the exact party-shim recipe or
 storage protocol to follow — the arcade shell runs the lobby and owns all
