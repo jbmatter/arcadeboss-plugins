@@ -150,7 +150,9 @@ predicts the player's own body through the game's ONE `move(body, input,
 dt)`, so movement is instant at any ping, and judges every shot through
 the game's ONE `hit(from, shot, world)` — run on the shooter's screen the
 instant `party.arena.fire` is called and again on the host with the same
-inputs, so a hit on screen is a hit; on the bench you play it as a peer,
+inputs, so a hit on screen is a hit, and picks things up through its ONE
+`touch(body, item)` the same way — a coin is gone the frame you reach it;
+on the bench you play it as a peer,
 exactly as every player will) — and saves or player-published levels: pass
 `storage` (`{ save: true }` and/or `{ publish: ["level"] }`). The
 contract the tool returns then carries the exact party-shim recipe or
